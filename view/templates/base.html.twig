@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {% block title %}SocialScore™{% endblock %} </title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body class="teal lighten-5">
+<nav>
+    <div class="nav-wrapper teal darken-4">
+        <a href="#!" class="brand-logo right">SocialScore™</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+            {% for n in nav %}
+                <li><a href="{{ n.link|e }}">{{ n.name|e }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    {% for n in nav %}
+        <li><a href="{{ n.link|e }}">{{ n.name|e }}</a></li>
+    {% endfor %}
+</ul>
+<div class="container">
+    {% block content %}
+        dasdasdasndkjasnj
+    {% endblock %}
+</div>
+<div class="footer-copyright">
+    <div class="container teal-text center-align">
+        {% block footer %}
+            © 2020 W gorącej wodzie company
+        {% endblock %}
+    </div>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    {% block js %}{% endblock %}
+</div>
+</body>
+</html>
+  

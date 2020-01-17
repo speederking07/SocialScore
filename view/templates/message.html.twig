@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="card teal lighten-4 col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-content teal-text">
+                <span class="card-title">{{title}}</span>
+                <form>
+                    <div class="row">
+                        <div class="col s3"><i class="material-icons large">{{icon}}</i></div>
+                        <div class="col s9"><p>{{message}}</p></div>
+                    </div>
+                    {% if buttons is defined %}
+                    <div class="center-align row">
+                        {% for btn in buttons %}
+                        <a href="{{ btn.link }}" class="waves-effect waves-light btn-large">
+                            <i class="material-icons right">{{btn.icon}}</i>{{ btn.name }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

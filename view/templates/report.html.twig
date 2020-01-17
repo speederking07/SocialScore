@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block js %}
+    <script type="text/javascript" src="js/report.js"></script>
+{%  endblock %}
+{% block title %}Report behavior{% endblock %}
+{% block content %}
+
+    <h1>Report behavior</h1>
+    <form id="reportForm" action="process_report.php" method="get">
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="person" type="text" class="" name="person">
+                <label for="login">Reported person</label>
+                <span id="helper-text" class="helper-text" data-success="right" data-error="PESEL is icorrect">Please enter his/her pesel</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="deedSelect" name="deed">
+                    <option value="" disabled selected>Choose committed deed</option>
+                    {% for deed in deeds %}
+                    <option value="{{deed.id}}">{{deed.name}}</option>
+                    {% endfor %}
+                </select>
+                <label>Deed</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="desc" class="materialize-textarea" data-length="300" name="desc"></textarea>
+                <label for="desc">Description</label>
+            </div>
+        </div>
+        <div class=" right-align row">
+            <a id="reportBtn" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">report_problem</i>Report</a>
+        </div>
+    </form>
+
+
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+
+    <ul class="collapsible teal lighten-4" style="border-color: #004d40;">
+        <li>
+            <div class="collapsible-header teal lighten-4" style="border-color: #004d40;">
+                <i class="material-icons">thumbs_up_down</i>
+                {{ deed }}
+            </div>
+            <div class="collapsible-body" style="border-color: #004d40;"><p class="property">
+                    <span>SocialScore™ impact: </span>{{ points }}</p></div>
+        </li>
+        <li>
+            <div class="collapsible-header teal lighten-4" style="border-color: #004d40;">
+                <i class="material-icons">person</i>
+                {{ first_name }} {{ last_name }}
+            </div>
+            <div class="collapsible-body" style="border-color: #004d40;"><p class="property">
+                    <span>PESEL:       </span>{{ pesel }}</p>
+                <p class="property"><span>Birth day:   </span>{{ birthday }}</p>
+                <p class="property"><span>Sex:         </span>
+                    {% if sex == M %}
+                        Male
+                    {% else %}
+                        Female
+                    {% endif %}
+                </p>
+                <p class="property"><span>City:        </span>
+                    {% if city is defined %}
+                        {{ city }}
+                    {% else %}
+                        unknown
+                    {% endif %}
+                </p>
+                <p class="property"><span>E-mail:      </span>
+                    {% if email is defined %}
+                        {{ email }}
+                    {% else %}
+                        unknown
+                    {% endif %}
+                </p>
+                <p class="property"><span>Phone:       </span>
+                    {% if phone is defined %}
+                        {{ phone }}
+                    {% else %}
+                        unknown
+                    {% endif %}
+                </p>
+                <p class="property"><span>Father name: </span>
+                    {% if father is defined %}
+                        {{ father }}
+                    {% else %}
+                        unknown parent
+                    {% endif %}
+                </p>
+                <p class="property"><span>Mother name: </span>
+                    {% if mother is defined %}
+                        {{ mother }}
+                    {% else %}
+                        unknown parent
+                    {% endif %}
+                </p></div>
+        </li>
+        <li class="active">
+            <div class="collapsible-header teal lighten-4" style="border-color: #004d40;">
+                <i class="material-icons">description</i>
+                Full report
+            </div>
+            <div class="collapsible-body" style="border-color: #004d40;"><p>{{ desc }}</p></div>
+        </li>
+    </ul>
+    <a href="overrule.php" class="btn-large"><i class="material-icons left">thumb_down</i>Overrule</a>
+    <a href="sustain.php" class="btn-large right"><i class="material-icons right">thumb_up</i>Sustain</a>
+{% endblock %}

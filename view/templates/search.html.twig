@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+
+    <nav class="teal darken-4">
+        <div class="nav-wrapper">
+            <form>
+                <div class="input-field">
+                    <input id="search" type="search" value="{{ search }}" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <table class="highlight">
+        <thead>
+        <tr>
+            <th>Pesel</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>SocialScore™</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for person in people %}
+            <tr class="chooseRow">
+                <td>{{ person.pesel }}</td>
+                <td>{{ person.first_name }} {{ person.last_name }}</td>
+                <td>{{ person.birthday }}</td>
+                <td>{{ person.points }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

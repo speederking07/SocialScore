@@ -1,0 +1,42 @@
+.row{
+    margin-bottom: 4px !important;
+}
+
+.container{
+    margin-top: 16px !important;
+    flex: 1 0 auto;
+}
+
+.information-div h2{
+    margin-top: 0;
+}
+
+.property{
+    margin: 4px 0;
+}
+
+.property span{
+    font-weight: bold;
+}
+
+table.highlight>tbody>tr:hover {
+    background-color: rgba(56, 174, 175, 0.3);
+}
+
+#search{
+    color: white !important;
+}
+
+#search:focus{
+    color: black !important;
+}
+
+.chooseRow{
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}

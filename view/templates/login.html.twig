@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+
+    <div class="row">
+        <div class="card teal lighten-4 col s12 m8 offset-m2 l6 offset-l3">
+            <div class="card-content teal-text">
+                <span class="card-title">Login</span>
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12 cyan-text">
+                            <input id="login" type="text" class="validate
+                            {% if login_invalid is defined %}
+                            invalid
+                            {% endif %}
+                            ">
+                            <label for="login">Login</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 cyan-text">
+                            <input id="password" type="password" class="validate
+                            {% if password_invalid is defined %}
+                            invalid
+                            {% endif %}
+                            ">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class=" right-align row">
+                        <a class="waves-effect waves-light btn-large"><i class="material-icons right">person</i>Log
+                            In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
