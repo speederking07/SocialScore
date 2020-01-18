@@ -1,7 +1,6 @@
 <?php
-    if ($_REQUEST['pesel'] == '1991'){
-        echo "Marek Bauer";
-    }
-    else{
-        echo "Not found";
-    }
+require_once __DIR__.'/model/ProfileModel.php';
+
+session_start();
+$model = new ProfileModel();
+echo $model ->getNameByPesel($_REQUEST['pesel']);

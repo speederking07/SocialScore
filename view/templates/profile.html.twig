@@ -1,61 +1,61 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Profile{% endblock %}
+{% block title %}Profile {{ first_name }} {{ last_name }}{% endblock %}
 {% block content %}
 
     <div class="row">
         <div class="col s12 m3">
-            {% if img is defined %}
-                <img class="materialboxed" src="img/{{ img }}" style="width: 100%; max-height: 100%">
+            {% if photo is not empty %}
+                <img class="materialboxed" src="img/{{ pesel }}.{{ photo }}" style="width: 100%; max-height: 100%">
             {% else %}
                 <img class="materialboxed" src="img/avatar.jpg" style="width: 100%; max-height: 100%">
             {% endif %}
         </div>
         <div class="col s12 m9 information-div">
-            {% if middle_name is defined %}
+            {% if middle_name is empty %}
                 <h2> {{ first_name }} {{ middle_name }} {{ last_name }} </h2>
             {% else %}
                 <h2> {{ first_name }} {{ last_name }} </h2>
             {% endif %}
             <p class="property"><span>PESEL:       </span>{{ pesel }}</p>
-            <p class="property"><span>Birth day:   </span>{{ birthday }}</p>
+            <p class="property"><span>Birth day:   </span>{{ birthdate }}</p>
             <p class="property"><span>Sex:         </span>
-                {% if sex == M %}
+                {% if sex == 'M' %}
                     Male
                 {% else %}
                     Female
                 {% endif %}
             </p>
             <p class="property"><span>City:        </span>
-                {% if city is defined %}
+                {% if city is not empty %}
                     {{ city }}
                 {% else %}
                     unknown
                 {% endif %}
             </p>
             <p class="property"><span>E-mail:      </span>
-                {% if email is defined %}
+                {% if email is not empty %}
                     {{ email }}
                 {% else %}
                     unknown
                 {% endif %}
             </p>
             <p class="property"><span>Phone:       </span>
-                {% if phone is defined %}
+                {% if phone is not empty %}
                     {{ phone }}
                 {% else %}
                     unknown
                 {% endif %}
             </p>
-            <p class="property"><span>Father name: </span>
-                {% if father is defined %}
+            <p class="property"><span>Father: </span>
+                {% if father is not empty %}
                     {{ father }}
                 {% else %}
                     unknown parent
                 {% endif %}
             </p>
-            <p class="property"><span>Mother name: </span>
-                {% if mother is defined %}
+            <p class="property"><span>Mother: </span>
+                {% if mother is not empty %}
                     {{ mother }}
                 {% else %}
                     unknown parent
@@ -74,14 +74,36 @@
                 </thead>
                 <tbody>
                 {% for deed in deeds %}
-                <tr>
-                    <td>{{ deed.name }}</td>
-                    <td>{{ deed.date }}</td>
-                    <td>{{ deed.points }}</td>
-                </tr>
+                    <tr>
+                        <td>{{ deed.name }}</td>
+                        <td>{{ deed.date }}</td>
+                        <td>{{ deed.points }}</td>
+                    </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
+        <div class="col s12 information-div">
+            <h2>Perks</h2>
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Threshold</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for perk in perks %}
+                    <tr>
+                        <td>{{ perk.name }}</td>
+                        <td>{{ perk.desc }}</td>
+                        <td>{{ perk.threshold }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
     </div>
 {% endblock %}

@@ -1,37 +1,45 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Login{% endblock %}
 {% block content %}
 
     <div class="row">
         <div class="card teal lighten-4 col s12 m8 offset-m2 l6 offset-l3">
             <div class="card-content teal-text">
                 <span class="card-title">Login</span>
-                <form>
+                <form id="loginForm" action="login.php" method="post">
                     <div class="row">
                         <div class="input-field col s12 cyan-text">
-                            <input id="login" type="text" class="validate
+                            <input id="login" value="{{ login }}" name="login" type="text" class="validate
                             {% if login_invalid is defined %}
                             invalid
                             {% endif %}
                             ">
                             <label for="login">Login</label>
+                            {% if login_invalid is defined %}
+                            <span id="helper-text" class="helper-text" data-success="" data-error="Login was incorrect">Enter login</span>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 cyan-text">
-                            <input id="password" type="password" class="validate
+                            <input id="password" name="password" type="password" class="validate
                             {% if password_invalid is defined %}
                             invalid
                             {% endif %}
                             ">
                             <label for="password">Password</label>
+                            {% if password_invalid is defined %}
+                            <span id="helper-text" class="helper-text" data-success="" data-error="Password was incorrect">Enter password</span>
+                            {% endif %}
                         </div>
                     </div>
                     <div class=" right-align row">
-                        <a class="waves-effect waves-light btn-large"><i class="material-icons right">person</i>Log
-                            In</a>
+                        <a class="waves-effect waves-light btn-large" onclick="$('#loginForm').submit()">
+                            <i class="material-icons right">person</i>
+                            LogIn</a>
                     </div>
+                    <input type="submit" style="display: none">
                 </form>
             </div>
         </div>

@@ -6,11 +6,11 @@
 {% block content %}
 
     <h1>Report behavior</h1>
-    <form id="reportForm" action="process_report.php" method="get">
+    <form id="reportForm" action="process_report.php" method="post">
         <div class="row">
             <div class="input-field col s12 cyan-text">
                 <input id="person" type="text" class="" name="person">
-                <label for="login">Reported person</label>
+                <label for="person">Reported person</label>
                 <span id="helper-text" class="helper-text" data-success="right" data-error="PESEL is icorrect">Please enter his/her pesel</span>
             </div>
         </div>

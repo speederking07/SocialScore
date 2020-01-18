@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block js %}
+    <script type="text/javascript" src="js/pesel.js"></script>
+    <script type="text/javascript" src="js/newAccount.js"></script>
+{%  endblock %}
+{% block title %}Add new account{% endblock %}
+{% block content %}
+
+    <h1>Add account</h1>
+    <form id="addForm" action="add_account.php" method="post">
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="pesel" type="text" class="peselCheck" name="pesel">
+                <label for="pesel">PESEL</label>
+                <span id="helper-text" class="helper-text" data-success="right" data-error="PESEL is icorrect">Please new PESEL</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="login" type="text" class="loginCheck" name="login">
+                <label for="login">Login</label>
+                <span id="helper-text" class="helper-text" data-success="Available login" data-error="Login has been already taken">Please new login</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="password1" class="password" type="password" name="password" required>
+                <label for="password1">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="password2" class="password" type="password" required>
+                <label for="password2">Password</label>
+                <span id="helper-text" class="helper-text" data-success="Passwords match" data-error="Different passwords">Please repeat your password</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="access">
+                    <option value="1" selected>1 - Citizen level</option>
+                    <option value="2">2 - Official level</option>
+                    <option value="3">3 - Administrator level</option>
+                </select>
+                <label>Access level</label>
+            </div>
+        </div>
+        <div class=" right-align row">
+            <a id="addBtn" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">person_add</i>Add person</a>
+        </div>
+
+    </form>
+
+
+
+{% endblock %}

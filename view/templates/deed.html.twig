@@ -1,63 +1,63 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Process Report{% endblock %}
 {% block content %}
-
+    <h1>Process Report</h1>
     <ul class="collapsible teal lighten-4" style="border-color: #004d40;">
         <li>
             <div class="collapsible-header teal lighten-4" style="border-color: #004d40;">
                 <i class="material-icons">thumbs_up_down</i>
-                {{ deed }}
+                {{ deed.name }}
             </div>
             <div class="collapsible-body" style="border-color: #004d40;"><p class="property">
-                    <span>SocialScore™ impact: </span>{{ points }}</p></div>
+                    <span>SocialScore™ impact: </span>{{ deed.points }}</p></div>
         </li>
         <li>
             <div class="collapsible-header teal lighten-4" style="border-color: #004d40;">
                 <i class="material-icons">person</i>
-                {{ first_name }} {{ last_name }}
+                {{ person.first_name }} {{ person.last_name }}
             </div>
             <div class="collapsible-body" style="border-color: #004d40;"><p class="property">
-                    <span>PESEL:       </span>{{ pesel }}</p>
-                <p class="property"><span>Birth day:   </span>{{ birthday }}</p>
+                    <span>PESEL:       </span>{{ person.pesel }}</p>
+                <p class="property"><span>Birth day:   </span>{{ person.birthdate }}</p>
                 <p class="property"><span>Sex:         </span>
-                    {% if sex == M %}
+                    {% if person.sex == 'M' %}
                         Male
                     {% else %}
                         Female
                     {% endif %}
                 </p>
                 <p class="property"><span>City:        </span>
-                    {% if city is defined %}
-                        {{ city }}
+                    {% if person.city is not empty %}
+                        {{ person.city }}
                     {% else %}
                         unknown
                     {% endif %}
                 </p>
                 <p class="property"><span>E-mail:      </span>
-                    {% if email is defined %}
-                        {{ email }}
+                    {% if person.email is not empty %}
+                        {{ person.email }}
                     {% else %}
                         unknown
                     {% endif %}
                 </p>
                 <p class="property"><span>Phone:       </span>
-                    {% if phone is defined %}
-                        {{ phone }}
+                    {% if person.phone is not empty %}
+                        {{ person.phone }}
                     {% else %}
                         unknown
                     {% endif %}
                 </p>
-                <p class="property"><span>Father name: </span>
-                    {% if father is defined %}
-                        {{ father }}
+                <p class="property"><span>Father: </span>
+                    {% if person.father is not empty %}
+                        {{ person.father }}
                     {% else %}
                         unknown parent
                     {% endif %}
                 </p>
-                <p class="property"><span>Mother name: </span>
-                    {% if mother is defined %}
-                        {{ mother }}
+                <p class="property"><span>Mother: </span>
+                    {% if person.mother is not empty %}
+                        {{ person.mother }}
                     {% else %}
                         unknown parent
                     {% endif %}
@@ -71,6 +71,6 @@
             <div class="collapsible-body" style="border-color: #004d40;"><p>{{ desc }}</p></div>
         </li>
     </ul>
-    <a href="overrule.php" class="btn-large"><i class="material-icons left">thumb_down</i>Overrule</a>
-    <a href="sustain.php" class="btn-large right"><i class="material-icons right">thumb_up</i>Sustain</a>
+    <a href="overrule.php?id={{ id }}" class="btn-large"><i class="material-icons left">thumb_down</i>Overrule</a>
+    <a href="sustain.php?id={{ id }}" class="btn-large right"><i class="material-icons right">thumb_up</i>Sustain</a>
 {% endblock %}

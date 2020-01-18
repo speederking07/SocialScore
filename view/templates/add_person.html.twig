@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+{% block js %}
+    <script type="text/javascript" src="js/pesel.js"></script>
+    <script type="text/javascript" src="js/newPerson.js"></script>
+{%  endblock %}
+{% block title %}Add new person{% endblock %}
+{% block content %}
+
+    <h1>Add person</h1>
+    <form id="addForm" action="add_person.php" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="pesel" type="text" class="peselUnique" name="pesel">
+                <label for="pesel">PESEL</label>
+                <span id="helper-text" class="helper-text" data-success="right" data-error="PESEL is icorrect">Please enter new PESEL</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="mother" type="text" class="peselCheck" name="mother">
+                <label for="mother">Mother PESEL</label>
+                <span id="helper-text" class="helper-text" data-success="right" data-error="PESEL is icorrect">Please enter mother PESEL</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="father" type="text" class="peselCheck" name="father">
+                <label for="father">Father PESEL</label>
+                <span id="helper-text" class="helper-text" data-success="right" data-error="PESEL is icorrect">Please enter father PESEL</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="firstName" class="validate nameValid" type="text" name="firstName" required>
+                <label for="firstName">First Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text" >
+                <input id="middleName" class="validate unrequited" type="text" name="middleName">
+                <label for="middleName">Middle name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="lastName" class="validate nameValid" type="text" name="lastName" required>
+                <label for="lastName">Last Name</label>
+            </div>
+        </div>
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>Add photo</span>
+                <input type="file" accept="image/*" name="photo">
+            </div>
+            <div class="file-path-wrapper">
+                <input id="filePath" class="file-path validate unrequited" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text" >
+                <input id="city" class="validate unrequited" type="text" name="city">
+                <label for="city">City</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text" class="valid">
+                <input id="email" class="validate unrequited" type="text" name="email">
+                <label for="email">E-mail</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 cyan-text">
+                <input id="phone" type="text" name="phone" class="validate unrequited">
+                <label for="phone">Phone</label>
+            </div>
+        </div>
+        <div class=" right-align row">
+            <a id="addBtn" class="waves-effect waves-light btn-large disabled"><i class="material-icons right">person_add</i>Add person</a>
+        </div>
+
+    </form>
+
+
+
+{% endblock %}

@@ -1,34 +1,35 @@
 $(document).ready(function () {
     $('#reportBtn').click(function () {
         $('#reportForm').submit();
-    })
+    });
 
     $('#person').focusout(function () {
         var person = $('#person');
+        person.removeClass('valid');
+        person.removeClass('invalid');
         $.ajax( {
             url: "person_exist.php",
-            data: { pesel: $('#person').val() },
+            data: { 'pesel': $('#person').val() },
             type: "POST"
         } )
             .done(function(msg) {
                 if(msg === "Not found"){
                     person.addClass('invalid');
-                    person.removeClass('valid');
                 }
                 else{
                     person.addClass('valid');
-                    person.removeClass('invalid');
+
                     $('#helper-text').attr('data-success', msg);
                 }
             })
             .fail(function() {
                 alert( "Unable to connect to server" );
-            })
+            });
         checkValid();
-    })
+    });
 
     $("#desc").focusout(function () {
-        var desc = $("#desc")
+        var desc = $("#desc");
         if (desc.val() === ''){
             desc.addClass('invalid');
             desc.removeClass('valid');
@@ -38,7 +39,7 @@ $(document).ready(function () {
             desc.removeClass('invalid');
         }
         checkValid();
-    })
+    });
 
     $('#deedSelect').change(function () {
         checkValid();
@@ -47,6 +48,6 @@ $(document).ready(function () {
 
 function checkValid() {
     if ($('#person').hasClass('valid') && $('#deedSelect').val() !== null && $('#desc').hasClass('valid')) {
-        $('#reportBtn').removeClass('disabled')
-    } else $('#reportBtn').addClass('disabled')
+        $('#reportBtn').removeClass('disabled');
+    } else $('#reportBtn').addClass('disabled');
 }

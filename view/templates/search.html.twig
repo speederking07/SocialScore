@@ -1,13 +1,13 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Search {{ search }}{% endblock %}
 {% block content %}
 
     <nav class="teal darken-4">
         <div class="nav-wrapper">
-            <form>
+            <form action="search.php" method="get">
                 <div class="input-field">
-                    <input id="search" type="search" value="{{ search }}" required>
+                    <input id="search" name="query" type="search" value="{{ search }}" required>
                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                 </div>
             </form>
@@ -24,10 +24,10 @@
         </thead>
         <tbody>
         {% for person in people %}
-            <tr class="chooseRow">
+            <tr class="chooseRow" onclick="window.location.href = 'profile.php?person={{ person.pesel }}'">
                 <td>{{ person.pesel }}</td>
                 <td>{{ person.first_name }} {{ person.last_name }}</td>
-                <td>{{ person.birthday }}</td>
+                <td>{{ person.birthdate }}</td>
                 <td>{{ person.points }}</td>
             </tr>
         {% endfor %}

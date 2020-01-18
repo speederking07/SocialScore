@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title> {% block title %}SocialScore™{% endblock %} </title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,11 +12,11 @@
 <body class="teal lighten-5">
 <nav>
     <div class="nav-wrapper teal darken-4">
-        <a href="#!" class="brand-logo right">SocialScore™</a>
+        <a href="index.php" class="brand-logo">SocialScore™</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down">
+        <ul class="right hide-on-med-and-down">
             {% for n in nav %}
-                <li><a href="{{ n.link|e }}">{{ n.name|e }}</a></li>
+                <li><a href="{{ n.link }}">{{ n.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
@@ -24,7 +24,7 @@
 
 <ul class="sidenav" id="mobile-demo">
     {% for n in nav %}
-        <li><a href="{{ n.link|e }}">{{ n.name|e }}</a></li>
+        <li><a href="{{ n.link }}">{{ n.name }}</a></li>
     {% endfor %}
 </ul>
 <div class="container">
