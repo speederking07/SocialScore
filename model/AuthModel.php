@@ -4,7 +4,7 @@ class AuthModel
     private $conn;
 
     public function __construct(){
-        $this->conn = new mysqli('localhost', 'root', '', 'SocialScore');
+        $this->conn = new mysqli('localhost', 'BasicUser', 'VeryGoodBasicUserPassword123', 'SocialScore');
     }
 
     public function __destruct(){

@@ -6,7 +6,7 @@ class ReportModel
     private $conn;
 
     public function __construct(){
-        $this->conn = new mysqli('localhost', 'root', '', 'SocialScore');
+        $this->conn = new mysqli('localhost', 'Observer', 'MediocrateObserverPassword456', 'SocialScore');
     }
 
     public function __destruct(){
@@ -26,8 +26,9 @@ class ReportModel
 
     public function sendReport($pesel, $deed, $desc)
     {
-        $stmt = $this->conn->prepare("INSERT INTO report (id, date, PESEL, deed, description) VALUES (null, null, ?, ?, ?)");
-        $stmt->bind_param("ssis", date('Y-m-d'), $pesel, $deed, $desc);
+        $stmt = $this->conn->prepare("INSERT INTO report (id, date, PESEL, deed, description) VALUES (null, ?, ?, ?, ?)");
+        $date = date('Y-m-d');
+        $stmt->bind_param("ssis", $date, $pesel, $deed, $desc);
         $stmt->execute();
         $result = $stmt->affected_rows;
         return !($result == -1);
@@ -66,7 +67,6 @@ class ReportModel
             FROM report ORDER BY RAND() LIMIT 1");
         if($r->num_rows === 0) return null;
         $row = $r->fetch_assoc();
-        print_r($row);
         return [
             'deed' => $this->getDeed($row['deed']),
             'person' => $this->getPerson($row['pesel']),

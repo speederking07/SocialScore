@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     $('.nameValid').focusout(function () {
         var t = $(this);
-        var regex = /^[A-Z]+[a-z]+$/;
+        var regex = /^[A-ZĘÓŻŹĆŃĄŁ][a-ząęółćńżź]+$/;
         t.removeClass('valid');
         t.removeClass('invalid');
         if(regex.test(t.val())) t.addClass('valid');
@@ -72,7 +72,7 @@ $(document).ready(function () {
 
     $('#middleName').focusout(function () {
         var t = $(this);
-        var regex = /^[A-Z]+[a-z]+$/;
+        var regex = /^[A-ZĘÓŻŹĆŃĄ][a-ząęółćńżź]+$/;
         t.removeClass('valid');
         t.removeClass('invalid');
         if(regex.test(t.val())) t.addClass('valid');

@@ -23,7 +23,7 @@ if ($_SESSION['access'] < 1) {
     if (!isset($_REQUEST['city'])) $_REQUEST['city'] = null;
     if (!isset($_REQUEST['email'])) $_REQUEST['email'] = null;
     if (!isset($_REQUEST['phone'])) $_REQUEST['phone'] = null;
-    if (!isset($_FILES['photo'])) $_REQUEST['photo'] = null;
+    if (empty($_FILES['photo']) || $_FILES['photo']['error'] != 0) $_REQUEST['photo'] = null;
     else {
         $info = pathinfo($_FILES['photo']['name']);
         $_REQUEST['photo'] = $info['extension'];

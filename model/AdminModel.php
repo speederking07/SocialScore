@@ -6,7 +6,7 @@ class AdminModel
     private $conn;
 
     public function __construct(){
-        $this->conn = new mysqli('localhost', 'root', '', 'SocialScore');
+        $this->conn = new mysqli('localhost', 'GodMode', 'AwfulGodModePasswordWeShouldChangeIt', 'SocialScore');
     }
 
     public function __destruct(){
@@ -56,8 +56,10 @@ class AdminModel
             fatherPESEL, motherPESEL, socialScore, photo) VALUES
             ($pesel,$firstName,$lastName,$middleName, null, null,$city,$email,$phone,$father,$mother,0,$photo)";
         //print_r($query);
-        $result = $this->conn->query($query);
-        return !($result === TRUE);
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->affected_rows;
+        return !($result == -1);
     }
 
     public function addAccount($login, $password, $pesel, $access){

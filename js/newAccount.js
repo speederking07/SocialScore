@@ -38,7 +38,6 @@ $(document).ready(function () {
         t.removeClass('invalid');
         if (t.val() === '') {
             t.addClass('invalid');
-            t.parent().children('span').attr('data-success', 'Login is empty');
         } else {
             $.ajax({
                 url: "login_exist.php",

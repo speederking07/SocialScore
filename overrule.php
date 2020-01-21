@@ -24,7 +24,7 @@ if ($_SESSION['access'] < 1) {
     }
     else if ($model->overruleReport($_REQUEST['id']) == true) {
         echo $twig->render('message.html.twig', ['nav' => $nav->getNav(),
-            'title' => "Success", 'icon' => 'done', 'message' => 'Report was successfully sustained',
+            'title' => "Success", 'icon' => 'done', 'message' => 'Report was successfully overruled',
             'buttons' => [['name' => 'Process another report', 'icon' => 'replay', 'link' => 'deed.php']],]);
     } else {
         echo $twig->render('message.html.twig', ['nav' => $nav->getNav(),
