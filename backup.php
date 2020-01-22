@@ -16,6 +16,6 @@ if ($_SESSION['access'] < 1) {
     $nav = new NavController();
     exec('C:\xampp\mysql\bin\mysqldump.exe --routines -u root socialscore > sql\backup.sql');
     echo $twig->render('message.html.twig', ['nav' => $nav->getNav(),
-        'title' => "Backup finished", 'icon' => 'lock_outline', 'message' => 'Data base was successfully preserved',
-        'buttons' => [['name' => 'Download', 'icon' => 'description', 'link' => 'sql/backup.sql']],]);
+        'title' => "Backup finished", 'icon' => 'backup', 'message' => 'Data base was successfully preserved',
+        'buttons' => [['name' => 'Download', 'icon' => 'file_download', 'link' => 'sql/backup.sql']],]);
 }

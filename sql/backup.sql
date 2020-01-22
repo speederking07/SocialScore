@@ -27,7 +27,7 @@ CREATE TABLE `deed` (
   `name` varchar(100) NOT NULL,
   `points` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `deed` (
 
 LOCK TABLES `deed` WRITE;
 /*!40000 ALTER TABLE `deed` DISABLE KEYS */;
-INSERT INTO `deed` VALUES (1,'Lust',-20),(2,'Gluttony',-5),(3,'Greed',-10),(4,'Sloth',-2),(5,'Wrath\r\n',-8),(6,'Envy',-25),(7,'Pride',-12);
+INSERT INTO `deed` VALUES (1,'Lust',-20),(2,'Gluttony',-5),(3,'Greed',-10),(4,'Sloth',-2),(5,'Wrath\r\n',-8),(6,'Envy',-25),(7,'Pride',-12),(8,'Carrying an old lady across the street',20),(9,'Letting someone through the door',2),(10,'Careing for animals in the shelter',30),(11,'Giving blood',40);
 /*!40000 ALTER TABLE `deed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,6 +63,7 @@ CREATE TABLE `perk` (
 
 LOCK TABLES `perk` WRITE;
 /*!40000 ALTER TABLE `perk` DISABLE KEYS */;
+INSERT INTO `perk` VALUES ('1% tax refund','Name says everthing',200),('Biedronka super client','5% discount in Biedronka',50),('Culture voucher','Free admission to the theater once a month',100),('Extra smile','A box of chocolates at the beginning of each month',500),('Health privilege','Priority in queue to the doctor',1000),('Sport voucher','Free ticket to the gym once a week',20),('Transport perk','Free 15 min public transport',300),('Unlimited internet','Unlimited internet after 8 p.m. on weekends',-40);
 /*!40000 ALTER TABLE `perk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,4 +335,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-21 17:32:44
+-- Dump completed on 2020-01-22 15:02:00
