@@ -14,7 +14,7 @@ $model = new ReportModel();
 $nav = new NavController();
 if($model->sendReport($_REQUEST['person'], $_REQUEST['deed'], $_REQUEST['desc']) == true) {
     echo $twig->render('message.html.twig', ['nav' => $nav->getNav(),
-    'title' => "Success", 'icon' => 'done', 'message' => 'Deed was successfully reported \\n Thank you',
+    'title' => "Success", 'icon' => 'done', 'message' => 'Deed was successfully reported. Thank you',
         'buttons' => [['name' => 'Another report', 'icon' => 'description', 'link' => 'report.php']],]);
 }
 else {
