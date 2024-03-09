@@ -1,6 +1,6 @@
 # Social Score
-A project designed for reporting good and bad behavior of people. The final project of my database course. SQL script was provided by my partner.
-## Features
+A project designed for reporting good and bad behavior of people. The final project of my database course.
+
 - 3 levels of access
 - reporting behavior
 - confirming allegations
